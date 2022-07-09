@@ -16,4 +16,3 @@ class Usuario(models.Model):
     fechaSuscrito = models.DateTimeField(auto_now_add=True,  null=True, verbose_name="Fecha Suscrito de Usuario")
     isAdmin = models.BooleanField(default=False, verbose_name="Isadmin de Usuario")
     
-#hola y chao
