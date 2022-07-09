@@ -19,21 +19,13 @@ def singUp(request):
     serializer = UserSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CRATED)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
     else:
-        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
-
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def login(request):
-    try:
-        data = JSONParser().parse(request)
-    
-        username = data['username']
-        password = data['password']
-    except:
-        return Response("Campos del Body deben ser username y password")
-    
+    data = JSONParser().parse(request)
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
