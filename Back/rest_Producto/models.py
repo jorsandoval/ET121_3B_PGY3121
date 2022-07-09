@@ -1,5 +1,5 @@
 from django.db import models
-from rest_Producto.models import Producto
+
 
 # Create your models here.
 class Producto(models.Model):
@@ -13,5 +13,5 @@ class Producto(models.Model):
 class Promocion(models.Model):
     idPromocion = models.AutoField(primary_key=True, verbose_name="id promocion")
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE, verbose_name="Producto")
-    pordesct = models.IntegerField(max_length=3, null=False, verbose_name="porcentaje de descuento")
+    pordesct = models.IntegerField(null=False, verbose_name="porcentaje de descuento")
     

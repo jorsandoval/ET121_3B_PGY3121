@@ -37,11 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_DetalleVenta',
     'rest_Producto',
-    'rest_Promocion',
     'rest_Usuario',
-    'rest_venta',
+    'rest_Venta',
     'rest_Auth',
     'rest_framework',
     'rest_framework.authtoken',
@@ -84,7 +82,7 @@ WSGI_APPLICATION = 'ET_web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'PGY3121',
+        'NAME': 'pgy3121',
         'USER': 'ETPGY3121',
         'PASSWORD': 'Duoc3MDY3131#',
         'HOST': 'localhost',

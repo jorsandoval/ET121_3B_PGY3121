@@ -15,7 +15,7 @@ class Venta(models.Model):
     fechaVenta = models.DateField(auto_now_add=True, null=True, verbose_name="fecha de venta")
     totalVenta = models.IntegerField(null=False, verbose_name="total de venta")
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, verbose_name="Usuario")
-    estadoVenta = models.models.ForeignKey(EstadoVenta, on_delete=models.CASCADE, verbose_name="EstadoVenta")
+    estadoVenta = models.ForeignKey(EstadoVenta, on_delete=models.CASCADE, verbose_name="EstadoVenta")
 
 class DetalleVenta(models.Model):
     idDetalleVenta = models.AutoField(primary_key=True, verbose_name="id Detalle Venta")
