@@ -27,11 +27,11 @@ def singUp(request):
 def login(request):
     data = JSONParser().parse(request)
     try:
-        user = User.objects.get(username=username)
+        user = User.objects.get(username=data["username"])
     except User.DoesNotExist:
         return Response("Usuario no se encuentra en los registros")
     
-    pass_valido = check_password(password, user.password)
+    pass_valido = check_password(data["password"], user.password)
     if not pass_valido:
         return Response("Contraseña incorrecta, intente nuevamente.")
     token, create = Token.objects.get_or_create(user=user)
