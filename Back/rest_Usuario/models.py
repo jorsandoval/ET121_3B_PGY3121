@@ -24,7 +24,7 @@ class Usuario(models.Model):
         max_length=255, null=False, verbose_name="Comuna de Usuario"
     )
     provincia = models.CharField(
-        max_length=255, null=False, verbose_name="Provincia de Usuario"
+        max_length=255, null=True, verbose_name="Provincia de Usuario"
     )
     region = models.CharField(
         max_length=255, null=False, verbose_name="Region de Usuario"
