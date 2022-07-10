@@ -32,7 +32,6 @@ class Producto(models.Model):
         on_delete=models.CASCADE,
     )
 
-
 class Promocion(models.Model):
     idPromocion = models.AutoField(primary_key=True, verbose_name="id promocion")
     pordesct = models.IntegerField(null=False, verbose_name="porcentaje de descuento")
