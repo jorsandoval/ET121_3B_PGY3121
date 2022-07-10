@@ -42,11 +42,7 @@ def productGetAll(request: HttpRequest):
                 if producto.is_valid():
                     producto.save()
             return Response(producto.data, status=status.HTTP_201_CREATED)
-        
-        '''producto = ProductoSerializer(data=data)
-        if producto.is_valid():
-            producto.save()
-            return Response(producto.data, status=status.HTTP_201_CREATED)'''  
+
 
 
 @api_view(["GET", "PUT", "DELETE"])
