@@ -13,7 +13,7 @@ from rest_framework.permissions import IsAuthenticated
 
 @csrf_exempt
 @api_view(['GET','POST'])
-@permission_classes((IsAuthenticated,))
+#@permission_classes((IsAuthenticated,))
 def usuariosGetAll(request):
     """ 
     Lista a todos los clientes
@@ -33,7 +33,7 @@ def usuariosGetAll(request):
 
 @csrf_exempt
 @api_view(['GET','PUT','DELETE'])
-@permission_classes((IsAuthenticated,))
+#@permission_classes((IsAuthenticated,))
 def usuarioById(request,idUsuario):
     """ 
     Get, update o delete de un Usuario en especifico.
