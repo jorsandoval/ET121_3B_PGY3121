@@ -1,4 +1,6 @@
+from doctest import debug_script
 from functools import partial
+from pydoc import describe
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
@@ -24,10 +26,22 @@ def productGetAll(request: HttpRequest):
         return Response(serializer.data, status=status.HTTP_200_OK)
     else:
         data = JSONParser().parse(request)
-        producto = ProductoSerializer(data=data)
+        if type(data) == dict:
+            producto = ProductoSerializer(data=data)
+            if producto.is_valid():
+                producto.save()
+                return Response(producto.data, status=status.HTTP_201_CREATED)
+        else:
+            for objProducto in data:
+                producto = ProductoSerializer(data=objProducto)
+                if producto.is_valid():
+                    producto.save()
+            return Response(producto.data, status=status.HTTP_201_CREATED)
+        
+        '''producto = ProductoSerializer(data=data)
         if producto.is_valid():
             producto.save()
-            return Response(producto.data, status=status.HTTP_201_CREATED)
+            return Response(producto.data, status=status.HTTP_201_CREATED)'''  
 
 
 @api_view(["GET", "PUT", "DELETE"])

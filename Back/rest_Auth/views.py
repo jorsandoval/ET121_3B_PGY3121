@@ -45,6 +45,7 @@ def login(request):
 def changePassword(request):
     try:
         data = JSONParser().parse(request)
+        data["password"] = make_password(data["password"])
         user = User.objects.get(username=data["username"])
     except User.DoesNotExist:
         return Response(
