@@ -6,7 +6,12 @@ from rest_framework.request import HttpRequest
 from rest_framework.parsers import JSONParser
 
 from .models import Producto, Promocion, Categoria
-from .serializers import ProductoSerializer, CategoriaSerializer, PromocionSerializer
+from .serializers import (
+    ProductoSerializer,
+    CategoriaSerializer,
+    PromocionProductoSerializer,
+    PromocionSerializer,
+)
 
 # Create your views here.
 """
@@ -108,21 +113,19 @@ def promocionGetAll(request: HttpRequest):
         return Response(serializer.data, status=status.HTTP_200_OK)
     else:
         data = JSONParser().parse(request)
-        pordesct = data["pordesct"]
-        idProducto = data["producto"]
+        promocion = PromocionSerializer(data={"pordesct": data["pordesct"]})
+        if promocion.is_valid():
+            promocion.save()
 
-        if type(idProducto) == int:
-            promocion = PromocionSerializer(data=data)
-            if promocion.is_valid():
-                promocion.save()
-                return Response(promocion.data, status=status.HTTP_201_CREATED)
-        else:
-            for id in idProducto:
-                finalData = {"pordesct": pordesct, "producto": id}
-                promocion = PromocionSerializer(data=finalData)
-                if promocion.is_valid():
-                    promocion.save()
-            return Response(promocion.data, status=status.HTTP_201_CREATED)
+        data = data["productos"]
+        for prod in data:
+            promocionProducto = PromocionProductoSerializer(
+                data={"idProducto": prod, "idPromocion": promocion.data["idPromocion"]}
+            )
+            if promocionProducto.is_valid():
+                promocionProducto.save()
+
+        return Response(promocion.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(["GET", "PUT", "DELETE"])

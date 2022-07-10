@@ -34,7 +34,9 @@ class Producto(models.Model):
 
 class Promocion(models.Model):
     idPromocion = models.AutoField(primary_key=True, verbose_name="id promocion")
-    producto = models.ForeignKey(
-        Producto, on_delete=models.CASCADE, verbose_name="Producto"
-    )
     pordesct = models.IntegerField(null=False, verbose_name="porcentaje de descuento")
+
+
+class PromocionProducto(models.Model):
+    idPromocion = models.ForeignKey(Promocion, on_delete=models.CASCADE)
+    idProducto = models.ForeignKey(Producto, on_delete=models.CASCADE)
