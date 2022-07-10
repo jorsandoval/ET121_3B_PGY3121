@@ -18,7 +18,7 @@ class Producto(models.Model):
     )
     valor = models.IntegerField(null=False, verbose_name="Valor de producto")
     descripcion = models.CharField(
-        max_length=255, null=False, verbose_name="Descripcion de producto"
+        max_length=1500, null=False, verbose_name="Descripcion de producto"
     )
     stock = models.IntegerField(null=False, default=0, verbose_name="Stock de producto")
     imagen = models.CharField(
