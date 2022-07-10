@@ -1,3 +1,4 @@
+from pydoc import describe
 from django.db import models
 
 
@@ -31,11 +32,10 @@ class Producto(models.Model):
         on_delete=models.CASCADE,
     )
 
-
 class Promocion(models.Model):
     idPromocion = models.AutoField(primary_key=True, verbose_name="id promocion")
     pordesct = models.IntegerField(null=False, verbose_name="porcentaje de descuento")
-
+    descripcion = models.CharField(max_length=512, null=True, verbose_name="descripcion de promoción")
 
 class PromocionProducto(models.Model):
     idPromocion = models.ForeignKey(Promocion, on_delete=models.CASCADE)

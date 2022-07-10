@@ -32,6 +32,7 @@ class PromocionSerializer(serializers.ModelSerializer):
         fields = [
             "idPromocion",
             "pordesct",
+            "descripcion",
         ]
 
 

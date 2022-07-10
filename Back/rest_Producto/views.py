@@ -44,11 +44,6 @@ def productGetAll(request: HttpRequest):
                     producto.save()
             return Response(producto.data, status=status.HTTP_201_CREATED)
 
-        """producto = ProductoSerializer(data=data)
-        if producto.is_valid():
-            producto.save()
-            return Response(producto.data, status=status.HTTP_201_CREATED)"""
-
 
 @api_view(["GET", "PUT", "DELETE"])
 def productById(request: HttpRequest, id: int):
@@ -86,10 +81,17 @@ def categoriaGetAll(request: HttpRequest):
         return Response(serializer.data, status=status.HTTP_200_OK)
     else:
         data = JSONParser().parse(request)
-        categoria = CategoriaSerializer(data=data)
-        if categoria.is_valid():
-            categoria.save()
-            return Response(categoria.data, status=status.HTTP_201_CREATED)
+        if type(data) == dict:
+            categorias = CategoriaSerializer(data=data)
+            if categorias.is_valid():
+                categorias.save()
+                return Response(categorias.data, status=status.HTTP_201_CREATED)
+        else:
+            for objCategorias in data:
+                categorias = CategoriaSerializer(data=objCategorias)
+                if categorias.is_valid():
+                    categorias.save()
+            return Response(categorias.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(["GET", "PUT", "DELETE"])
