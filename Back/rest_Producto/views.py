@@ -138,6 +138,7 @@ def promocionGetAll(request: HttpRequest):
             )
             finalObject = {
                 "idPromocion": promo["idPromocion"],
+                "drescipcion": promo["descripcion"],
                 "productos": serializerPromocionProducto.data,
             }
             finalList.append(finalObject)
@@ -145,20 +146,22 @@ def promocionGetAll(request: HttpRequest):
         return Response(finalList, status=status.HTTP_200_OK)
     else:
         data = JSONParser().parse(request)
-        promocion = PromocionSerializer(data={"pordesct": data["pordesct"]})
+        promocion = PromocionSerializer(
+            data={"pordesct": data["pordesct"], "descripcion": data["descripcion"]}
+        )
         if promocion.is_valid():
             promocion.save()
 
         data = data["productos"]
+        idPromocion = promocion.data["idPromocion"]
         for prod in data:
             finalObject = {
-                "idPromocion_id": promocion.data["idPromocion"],
-                "idProducto_id": prod,
+                "idPromocion": idPromocion,
+                "idProducto": prod,
             }
             promocionProducto = PromocionProductoSerializer(data=finalObject)
             if promocionProducto.is_valid():
                 promocionProducto.save()
-
         return Response(promocion.data, status=status.HTTP_201_CREATED)
 
 
