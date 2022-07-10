@@ -1,3 +1,4 @@
+from functools import partial
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
@@ -28,10 +29,27 @@ def login(request):
     try:
         user = User.objects.get(username=data["username"])
     except User.DoesNotExist:
-        return Response("Usuario no se encuentra en los registros")
+        return Response(
+            "Usuario no se encuentra en los registros", status=status.HTTP_404_NOT_FOUND
+        )
 
     pass_valido = check_password(data["password"], user.password)
     if not pass_valido:
         return Response("Contraseña incorrecta, intente nuevamente.")
     token, create = Token.objects.get_or_create(user=user)
     return Response(token.key)
+
+
+@api_view(["PUT"])
+def changePassword(request):
+    try:
+        data = JSONParser().parse(request)
+        user = User.objects.get(username=data["username"])
+    except User.DoesNotExist:
+        return Response(
+            "Usuario no se encuentra en los registros", status=status.HTTP_404_NOT_FOUND
+        )
+    serializer = UserSerializer(user, data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(status=status.HTTP_200_OK)
