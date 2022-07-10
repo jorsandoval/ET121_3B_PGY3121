@@ -1,7 +1,7 @@
 from django.urls import path
-from rest_Usuario import listaUsuarios, detalleUsuario
+from rest_Usuario import usuariosGetAll, usuarioById
 
 urlpatterns = [
-    path('listaUsuarios', listaUsuarios, name='listaUsuarios'),
-    path('detalleUsuario', detalleUsuario, name='detalleUsuario'),
+    path('usuarios/', usuariosGetAll, name='listaUsuarios'),
+    path('usuarios/<idUsuario>', usuarioById, name='usuarioById'),
 ]
