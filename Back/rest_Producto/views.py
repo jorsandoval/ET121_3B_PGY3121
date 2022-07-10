@@ -136,11 +136,20 @@ def promocionById(request: HttpRequest, id: int):
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == "PUT":
         data = JSONParser().parse(request)
-        serializer = PromocionSerializer(promocion, data=data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        pordesct = data["pordesct"]
+        idProducto = data["producto"]
+        if type(idProducto) == int:
+            promocion = PromocionSerializer(promocion, data, partial=True)
+            if promocion.is_valid():
+                promocion.save()
+                return Response(promocion.data, status=status.HTTP_200_OK)
+        else:
+            for id in idProducto:
+                finalData = {"pordesct": pordesct, "producto": id}
+                promocion = PromocionSerializer(promocion, finalData, partial=True)
+                if promocion.is_valid():
+                    promocion.save()
+            return Response(promocion.data, status=status.HTTP_200_OK)
     else:
         promocion.delete()
         return Response(status=status.HTTP_200_OK)
