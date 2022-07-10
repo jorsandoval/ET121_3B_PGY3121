@@ -4,8 +4,8 @@ from .views import estadoVentaGetAll, estadoVentaByid, ventaGetAll, ventaByid, d
 urlpatterns = [
     path('estadoVenta/', estadoVentaGetAll, name='estadoVentaGetAll'),
     path('estadoVenta/<idEstadoVenta>', estadoVentaByid, name='estadoVentaByid'),
-    path('ventaGetAll/', ventaGetAll, name='ventaGetAll'),
-    path('ventaGetAll/<idVenta>', ventaByid, name='ventaByid'),
-    path('detalleVentaGetAll/', detalleVentaGetAll, name='detalleVentaGetAll'),
-    path('detalleVentaByid/<idDetalleVenta>', detalleVentaByid, name='detalleVentaByid'),
+    path('ventas/', ventaGetAll, name='ventaGetAll'),
+    path('ventas/<idVenta>', ventaByid, name='ventaByid'),
+    path('detalleVentas/', detalleVentaGetAll, name='detalleVentaGetAll'),
+    path('detalleVentas/<idDetalleVenta>', detalleVentaByid, name='detalleVentaByid'),
 ]
