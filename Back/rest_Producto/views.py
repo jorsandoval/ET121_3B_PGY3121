@@ -139,14 +139,14 @@ def promocionById(request: HttpRequest, id: int):
         pordesct = data["pordesct"]
         idProducto = data["producto"]
         if type(idProducto) == int:
-            promocion = PromocionSerializer(promocion, data, partial=True)
+            promocion = PromocionSerializer(promocion, data)
             if promocion.is_valid():
                 promocion.save()
                 return Response(promocion.data, status=status.HTTP_200_OK)
         else:
-            for id in idProducto:
-                finalData = {"pordesct": pordesct, "producto": id}
-                promocion = PromocionSerializer(promocion, finalData, partial=True)
+            for idp in idProducto:
+                finalData = {"pordesct": pordesct, "producto": idp}
+                promocion = PromocionSerializer(promocion, finalData)
                 if promocion.is_valid():
                     promocion.save()
             return Response(promocion.data, status=status.HTTP_200_OK)
