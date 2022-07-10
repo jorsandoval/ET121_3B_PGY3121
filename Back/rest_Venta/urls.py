@@ -1,5 +1,5 @@
 from django.urls import path
-from rest_Venta import estadoVentaGetAll, estadoVentaByid, ventaGetAll, ventaByid, detalleVentaGetAll, detalleVentaByid
+from .views import estadoVentaGetAll, estadoVentaByid, ventaGetAll, ventaByid, detalleVentaGetAll, detalleVentaByid
 
 urlpatterns = [
     path('estadoVenta/', estadoVentaGetAll, name='estadoVentaGetAll'),
