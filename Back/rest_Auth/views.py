@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
-from django.contrib.auth.hashers import check_password
+from django.contrib.auth.hashers import check_password, make_password
 from rest_framework.authtoken.models import Token
 from .serializers import UserSerializer
 
@@ -15,6 +15,7 @@ from .serializers import UserSerializer
 @api_view(["POST"])
 def singUp(request):
     data = JSONParser().parse(request)
+    data["password"] = make_password(data["password"])
     serializer = UserSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
