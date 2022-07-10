@@ -14,7 +14,7 @@ from rest_framework.permissions import IsAuthenticated
 @csrf_exempt
 @api_view(['GET','POST'])
 @permission_classes((IsAuthenticated,))
-def listaUsuarios(request):
+def usuariosGetAll(request):
     """ 
     Lista a todos los clientes
     """
@@ -34,7 +34,7 @@ def listaUsuarios(request):
 @csrf_exempt
 @api_view(['GET','PUT','DELETE'])
 @permission_classes((IsAuthenticated,))
-def detalleUsuario(request,idUsuario):
+def usuarioById(request,idUsuario):
     """ 
     Get, update o delete de un Usuario en especifico.
     Recibe el parametro <idUsuario>
