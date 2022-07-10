@@ -28,7 +28,7 @@ class CategoriaSerializer(serializers.ModelSerializer):
 
 class PromocionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Categoria
+        model = Promocion
         fields = [
             "idPromocion",
             "producto",

@@ -1,3 +1,4 @@
+from functools import partial
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
@@ -40,7 +41,7 @@ def productById(request: HttpRequest, id: int):
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == "PUT":
         data = JSONParser().parse(request)
-        serializer = ProductoSerializer(producto, data=data)
+        serializer = ProductoSerializer(producto, data=data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -82,7 +83,7 @@ def categoriaById(request: HttpRequest, id: int):
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == "PUT":
         data = JSONParser().parse(request)
-        serializer = CategoriaSerializer(categoria, data=data)
+        serializer = CategoriaSerializer(categoria, data=data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -107,9 +108,20 @@ def promocionGetAll(request: HttpRequest):
         return Response(serializer.data, status=status.HTTP_200_OK)
     else:
         data = JSONParser().parse(request)
-        promocion = PromocionSerializer(data=data)
-        if promocion.is_valid():
-            promocion.save()
+        pordesct = data["pordesct"]
+        idProducto = data["producto"]
+
+        if type(idProducto) == int:
+            promocion = PromocionSerializer(data=data)
+            if promocion.is_valid():
+                promocion.save()
+                return Response(promocion.data, status=status.HTTP_201_CREATED)
+        else:
+            for id in idProducto:
+                finalData = {"pordesct": pordesct, "producto": id}
+                promocion = PromocionSerializer(data=finalData)
+                if promocion.is_valid():
+                    promocion.save()
             return Response(promocion.data, status=status.HTTP_201_CREATED)
 
 
@@ -124,7 +136,7 @@ def promocionById(request: HttpRequest, id: int):
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == "PUT":
         data = JSONParser().parse(request)
-        serializer = PromocionSerializer(promocion, data=data)
+        serializer = PromocionSerializer(promocion, data=data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
