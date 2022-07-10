@@ -40,6 +40,6 @@ class PromocionProductoSerializer(serializers.ModelSerializer):
         model = PromocionProducto
         fields = [
             "id",
-            "idPromocion",
-            "idProducto",
+            "idPromocion_id",
+            "idProducto_id",
         ]
