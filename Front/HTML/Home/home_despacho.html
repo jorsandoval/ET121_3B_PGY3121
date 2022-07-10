@@ -16,6 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6ab49dc6fe.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -68,7 +69,13 @@
                         <h1 class="text-center" style="font-family: cursive">Estado del pedido</h1>
                     </div>
                     <div class="row">
-                        <table class="table table-success table-striped">
+                        <div class="progress" style="height: 10px; ">
+                            <div class="progress-bar" role="progressbar"
+                                style="width: 25%; " aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                        
+                        <!-- <table class="table table-success table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col"><i class="fa-solid fa-arrow-right-to-city"></i></th>
@@ -77,48 +84,16 @@
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                {}
                                 <tr>
-                                    <td>{{ }}</td>
-                                    <td>{{ }}</td>
-                                    <td>{{ }}</td>
-                                    <td>{{ }}</td>
-                                    <td><a href="#" class="font-weight-bold text-dark">Ver</a></td>
-                                    <td><a href="#" class="font-weight-bold text-dark">Eliminar</a></td>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                            style="width: 25%; height: 10px;" aria-valuenow="25" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
                                 </tr>
-                                {% endfor %}
                             </tbody>
-                        </table>
+                        </table> -->
                         </br>
-                        <div class="col-4">
-                            <div class="row">
-                                <h1 class="text-center" style="font-family: cursive">Resumen de pago</h1>
-                            </div>
-                            <div class="row">
-                                <table class="table table-secondary table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" style="font-family: cursive">Cant.</th>
-                                            <th scope="col" style="font-family: cursive">Valor</th>
-                                            <th scope="col" style="font-family: cursive">Desc.</th>
-                                            <th scope="col" style="font-family: cursive">Total</th>
-                                            <th scope="col" class="text-center" style="font-family: cursive">Opciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="table-group-divider">
-                                        {}
-                                        <tr>
-                                            <td>{{ }}</td>
-                                            <td>{{ }}</td>
-                                            <td>{{ }}</td>
-                                            <td>{{ }}</td>
-                                            <td><button type="submit" class="btn btn-success" style="font-family: cursive">Pagar</button></td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
