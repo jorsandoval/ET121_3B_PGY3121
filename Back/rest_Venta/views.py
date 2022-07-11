@@ -23,14 +23,19 @@ def estadoVentaGetAll(request):
         estadoVenta = EstadoVenta.objects.all()
         serializer = EstadoVentaSerializer(estadoVenta, many=True)
         return Response(serializer.data)
-    elif request.method == 'POST':
+    else:
         data = JSONParser().parse(request)
-        serializer = EstadoVentaSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        if type(data) == dict:
+            estadoVenta = EstadoVentaSerializer(data=data)
+            if estadoVenta.is_valid():
+                estadoVenta.save()
+                return Response(estadoVenta.data, status=status.HTTP_201_CREATED)
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            for objEstadoVenta in data:
+                estadoVenta = EstadoVentaSerializer(data=objEstadoVenta)
+                if estadoVenta.is_valid():
+                    estadoVenta.save()
+            return Response(estadoVenta.data, status=status.HTTP_201_CREATED)
 
 @csrf_exempt
 @api_view(['GET','PUT','DELETE'])
