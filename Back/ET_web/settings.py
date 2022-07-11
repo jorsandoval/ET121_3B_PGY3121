@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_Producto",
-    "rest_Usuario",
     "rest_Venta",
     "rest_Auth",
     "rest_framework",
