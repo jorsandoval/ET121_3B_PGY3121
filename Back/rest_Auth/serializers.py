@@ -24,6 +24,5 @@ class UsuarioSerializer(serializers.ModelSerializer):
             "region",
             "rut",
             "isSuscrito",
-            "fechaSuscrito",
-            "isAdmin",
+            "fechaSuscrito"
         ]        
