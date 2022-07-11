@@ -1,12 +1,20 @@
+from doctest import debug_script
 from functools import partial
+from pydoc import describe
+from typing import final
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.request import HttpRequest
 from rest_framework.parsers import JSONParser
 
-from .models import Producto, Promocion, Categoria
-from .serializers import ProductoSerializer, CategoriaSerializer, PromocionSerializer
+from .models import Producto, Promocion, Categoria, PromocionProducto
+from .serializers import (
+    ProductoSerializer,
+    CategoriaSerializer,
+    PromocionProductoSerializer,
+    PromocionSerializer,
+)
 
 # Create your views here.
 """
@@ -24,9 +32,16 @@ def productGetAll(request: HttpRequest):
         return Response(serializer.data, status=status.HTTP_200_OK)
     else:
         data = JSONParser().parse(request)
-        producto = ProductoSerializer(data=data)
-        if producto.is_valid():
-            producto.save()
+        if type(data) == dict:
+            producto = ProductoSerializer(data=data)
+            if producto.is_valid():
+                producto.save()
+                return Response(producto.data, status=status.HTTP_201_CREATED)
+        else:
+            for objProducto in data:
+                producto = ProductoSerializer(data=objProducto)
+                if producto.is_valid():
+                    producto.save()
             return Response(producto.data, status=status.HTTP_201_CREATED)
 
 
@@ -66,10 +81,17 @@ def categoriaGetAll(request: HttpRequest):
         return Response(serializer.data, status=status.HTTP_200_OK)
     else:
         data = JSONParser().parse(request)
-        categoria = CategoriaSerializer(data=data)
-        if categoria.is_valid():
-            categoria.save()
-            return Response(categoria.data, status=status.HTTP_201_CREATED)
+        if type(data) == dict:
+            categorias = CategoriaSerializer(data=data)
+            if categorias.is_valid():
+                categorias.save()
+                return Response(categorias.data, status=status.HTTP_201_CREATED)
+        else:
+            for objCategorias in data:
+                categorias = CategoriaSerializer(data=objCategorias)
+                if categorias.is_valid():
+                    categorias.save()
+            return Response(categorias.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(["GET", "PUT", "DELETE"])
@@ -104,25 +126,43 @@ def categoriaById(request: HttpRequest, id: int):
 def promocionGetAll(request: HttpRequest):
     if request.method == "GET":
         promocion: Promocion = Promocion.objects.all()
-        serializer = PromocionSerializer(promocion, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        serializerPromocion = PromocionSerializer(promocion, many=True)
+        finalList = []
+        for promo in serializerPromocion.data:
+            print(promo["idPromocion"])
+            promocionProducto: PromocionProducto = PromocionProducto.objects.filter(
+                idPromocion_id=promo["idPromocion"]
+            )
+            serializerPromocionProducto = PromocionProductoSerializer(
+                promocionProducto, many=True
+            )
+            finalObject = {
+                "idPromocion": promo["idPromocion"],
+                "drescipcion": promo["descripcion"],
+                "productos": serializerPromocionProducto.data,
+            }
+            finalList.append(finalObject)
+
+        return Response(finalList, status=status.HTTP_200_OK)
     else:
         data = JSONParser().parse(request)
-        pordesct = data["pordesct"]
-        idProducto = data["producto"]
+        promocion = PromocionSerializer(
+            data={"pordesct": data["pordesct"], "descripcion": data["descripcion"]}
+        )
+        if promocion.is_valid():
+            promocion.save()
 
-        if type(idProducto) == int:
-            promocion = PromocionSerializer(data=data)
-            if promocion.is_valid():
-                promocion.save()
-                return Response(promocion.data, status=status.HTTP_201_CREATED)
-        else:
-            for id in idProducto:
-                finalData = {"pordesct": pordesct, "producto": id}
-                promocion = PromocionSerializer(data=finalData)
-                if promocion.is_valid():
-                    promocion.save()
-            return Response(promocion.data, status=status.HTTP_201_CREATED)
+        data = data["productos"]
+        idPromocion = promocion.data["idPromocion"]
+        for prod in data:
+            finalObject = {
+                "idPromocion": idPromocion,
+                "idProducto": prod,
+            }
+            promocionProducto = PromocionProductoSerializer(data=finalObject)
+            if promocionProducto.is_valid():
+                promocionProducto.save()
+        return Response(promocion.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(["GET", "PUT", "DELETE"])

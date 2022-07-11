@@ -15,21 +15,23 @@ from rest_framework.permissions import IsAuthenticated
 @api_view(['GET','POST'])
 #@permission_classes((IsAuthenticated,))
 def usuariosGetAll(request):
-    """ 
-    Lista a todos los clientes
-    """
     if request.method == 'GET':
         usuario = Usuario.objects.all()
         serializer = UsuarioSerializer(usuario, many=True)
-        return Response(serializer.data)
-    elif request.method == 'POST':
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    else:
         data = JSONParser().parse(request)
-        serializer = UsuarioSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        if type(data) == dict:
+            usuario = UsuarioSerializer(data=data)
+            if usuario.is_valid():
+                usuario.save()
+                return Response(usuario.data, status=status.HTTP_201_CREATED)
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            for objUsuario in data:
+                usuario = UsuarioSerializer(data=objUsuario)
+                if usuario.is_valid():
+                    usuario.save()
+            return Response(usuario.data, status=status.HTTP_201_CREATED)
 
 @csrf_exempt
 @api_view(['GET','PUT','DELETE'])
