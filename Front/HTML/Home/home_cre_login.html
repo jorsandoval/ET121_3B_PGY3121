@@ -14,6 +14,190 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	</head>
 
+<<<<<<< HEAD
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <section>
+            <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgb(133, 185, 11);">
+                <a class="navbar-brand" href="#" style="font-family: cursive; font-weight:bolder; font-size: 28px; color: rgb(245, 250, 255);">VirtualMarket</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation"></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="list-style: none;">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="home_login.html">Iniciar Sesion</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="donacion.html">Aporte</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="categoria.html">Categoria</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Venta</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-menu" href="producto.html">Comprar productos</a>
+                                <a class="dropdown-item" href="home_carroCompra.html">Carro de compras</a>
+                                <a class="dropdown-item" href="verProducto.html">Ver tus productos</a>
+                            </div>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+        <div class="container-fluid m-0 pt-5">
+            <main role="main" class="container my-auto">
+                <div class="row">
+                    <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3
+                        col-12">
+                        <h2 class="text-center" style="font-family: cursive">Regístrate</h2>
+                        <form>
+                            <div class="mb-3">
+                                <label for="Name" class="form-label" style="font-family: cursive">Nombre</label>
+                                <input type="text" class="form-control" id="Name" aria-describedby="Nombre"
+                                    placeholder="Ingresa tu nombre">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Lastname" class="form-label" style="font-family: cursive">Apellidos</label>
+                                <input type="text" class="form-control" id="Lastname" aria-describedby="Apellidos"
+                                    placeholder="Ingresa tus apellidos">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Dni" class="form-label" style="font-family: cursive">Rut</label>
+                                <input type="text" class="form-control" id="Dni" aria-describedby="Rut"
+                                    placeholder="Ingresa tu rut sin puntos con guión y dv">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Address" class="form-label" style="font-family: cursive">Dirección</label>
+                                <input type="text" class="form-control" id="Lastname" aria-describedby="Direccion"
+                                    placeholder="Ingresa la dirección">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Townships" class="form-label" style="font-family: cursive">Comuna</label>
+                                <input type="text" class="form-control" id="Townships" aria-describedby="Comuna"
+                                    placeholder="Ingresa la comuna">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Province" class="form-label" style="font-family: cursive">Provincia</label>
+                                <input type="text" class="form-control" id="Province" aria-describedby="Provincia"
+                                    placeholder="Ingresa la Provincia">
+                            </div>
+                            <div class="mb-3">
+                                <label for="State" class="form-label" style="font-family: cursive">Región</label>
+                                <input type="text" class="form-control" id="State" aria-describedby="Region"
+                                    placeholder="Ingresa la Región">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Phone" class="form-label" style="font-family: cursive">Teléfono</label>
+                                <input type="text" class="form-control" id="Phone" aria-describedby="Telefono"
+                                    placeholder="Ingresa tu número fijo o móvil">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Email" class="form-label" style="font-family: cursive">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="Email"
+                                    aria-describedby="Correo electronico" placeholder="Ingresa tu email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="InputPassword1" class="form-label" style="font-family: cursive">Contraseña</label>
+                                <input type="password" class="form-control" id="InputPassword1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="InputPassword2" class="form-label" style="font-family: cursive">Confirme
+                                    Contraseña</label>
+                                <input type="password" class="form-control" id="InputPassword2">
+                            </div>
+                            <div class="col-6">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1" style="font-family: cursive">Suscribirme</label>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success" style="font-family: cursive">Enviar</button>
+                                <button type="reset" class="btn btn-dark" style="font-family: cursive">Limpiar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </main>
+    <footer>
+        <div class="container-fluid" style="background-color: rgb(133, 185, 11)">
+            <div class="row pb-2 pt-5">
+                <div class="col-md-6 mb-2">
+                    <div class="widget widget-links widget-light">
+                        <ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start"
+                            style="list-style: none">
+                            <li class="widget-list-item me-4">
+                                <a class="widget-list-link" href="{% url 'index.html' %}">Inicio</a>
+                            </li>
+                            <li class="widget-list-item me-4">
+                                <a class="widget-list-link" href="{% url 'nosotros.html' %}">Nosotros</a>
+                            </li>
+                            <li class="widget-list-item me-4">
+                                <a class="widget-list-link" href="{% url 'contacto.html' %}">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div
+                        class="widget widget-links widget-light widget-list d-flex flex-wrap mb-3 justify-content-center justify-content-md-end">
+                        <button type="button" class="btn btn-outline-secondary widget-list-item">
+                            <a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+                                href="https://twitter.com/home">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary widget-list-item">
+                            <a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+                                href="https://web.whatsapp.com/">
+                                <i class="bi bi-whatsapp"></i>
+                            </a>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary widget-list-item">
+                            <a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+                                href="https://www.facebook.com/">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary widget-list-item">
+                            <a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+                                href="https://www.instagram.com/">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary widget-list-item">
+                            <a class="btn-social bs-light widget-list-linkwidget-light mb-2" href="./contacto.html">
+                                <i class="bi bi-envelope"></i>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+=======
 	<body>
 		<header>
 			<nav
@@ -385,3 +569,4 @@
 		<script src="../../script/authService.js"></script>
 	</body>
 </html>
+>>>>>>> 35aa1fdf6470edcc006573856623e05528acd34b
