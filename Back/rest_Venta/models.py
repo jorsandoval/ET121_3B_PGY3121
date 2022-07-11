@@ -2,7 +2,7 @@ from functools import total_ordering
 from pydoc import cli
 from tabnanny import verbose
 from django.db import models
-from rest_Usuario.models import Usuario
+from rest_Auth.models import Usuario
 from rest_Producto.models import Producto
 
 
