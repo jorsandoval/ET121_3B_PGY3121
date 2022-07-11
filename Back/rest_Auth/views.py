@@ -33,15 +33,14 @@ def singUp(request):
             "region": data["region"],
             "rut": data["rut"],
             "isSuscrito": data["isSuscrito"],
-            "isAdmin": data["isAdmin"],
-            }
+        }
     )
     if usuario.is_valid():
         data["password"] = make_password(data["password"])
         serializer = UserSerializer(
             data={
                 "first_name": data["nombre"],
-                "last_name" : data["apellidos"],
+                "last_name": data["apellidos"],
                 "email": data["correo"],
                 "password": data["password"],
                 "username": data["correo"],
@@ -53,10 +52,12 @@ def singUp(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
+
 """
     Inicio de sesión
 """
+
 
 @api_view(["POST"])
 def login(request):
@@ -74,9 +75,11 @@ def login(request):
     token, create = Token.objects.get_or_create(user=user)
     return Response({"token": token.key})
 
+
 """
     Cambio de contraseña
 """
+
 
 @api_view(["PUT"])
 def changePassword(request):
@@ -92,16 +95,18 @@ def changePassword(request):
     if serializer.is_valid():
         serializer.save()
         return Response(status=status.HTTP_200_OK)
-    
+
+
 """
     Usuario
 """
 
+
 @csrf_exempt
-@api_view(['GET'])
-#@permission_classes((IsAuthenticated,))
+@api_view(["GET"])
+# @permission_classes((IsAuthenticated,))
 def usuariosGetAll(request):
-    if request.method == 'GET':
+    if request.method == "GET":
         usuario = Usuario.objects.all()
         serializer = UsuarioSerializer(usuario, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -110,10 +115,10 @@ def usuariosGetAll(request):
 
 
 @csrf_exempt
-@api_view(['GET','PUT','DELETE'])
-#@permission_classes((IsAuthenticated,))
-def usuarioById(request,idUsuario):
-    """ 
+@api_view(["GET", "PUT", "DELETE"])
+# @permission_classes((IsAuthenticated,))
+def usuarioById(request, idUsuario):
+    """
     Get, update o delete de un Usuario en especifico.
     Recibe el parametro <idUsuario>
     """
@@ -121,12 +126,12 @@ def usuarioById(request,idUsuario):
         usuario = Usuario.objects.get(idUsuario=idUsuario)
     except Usuario.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-    
-    if request.method == 'GET':
+
+    if request.method == "GET":
         serializer = UsuarioSerializer(usuario)
         return Response(serializer.data)
-    
-    if request.method == 'PUT':
+
+    if request.method == "PUT":
         data = JSONParser().parse(request)
         serializer = UsuarioSerializer(usuario, data=data)
         if serializer.is_valid():
