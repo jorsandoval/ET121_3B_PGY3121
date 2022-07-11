@@ -62,9 +62,12 @@ form.addEventListener("submit", (e) => {
 			provincia: document.getElementById("provincia").value,
 			region: document.getElementById("region").value,
 			rut: document.getElementById("rut").value,
-			isSuscrito: document.getElementById("isSuscrito").value,
+			isSuscrito: document.getElementById("isSuscrito").checked,
 			password: document.getElementById("password").value,
 		};
-		console.log(object);
+		fetch(`http://localhost:8000/api/v1/Auth/signUp`, {
+			method: "POST",
+			body: JSON.stringify(object),
+		});
 	}
 });
