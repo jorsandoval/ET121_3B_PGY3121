@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
     <header>
+<<<<<<< HEAD
         <section>
             <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgb(133, 185, 11);">
                 <a class="navbar-brand" href="#" style="font-family: cursive; font-weight:bolder; font-size: 28px; color: rgb(245, 250, 255);">VirtualMarket</a>
@@ -38,101 +41,100 @@
                                 <a class="dropdown-item" href="home_carroCompra.html">Carro de compras</a>
                                 <a class="dropdown-item" href="verProducto.html">Ver tus productos</a>
                             </div>
+=======
+        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgb(133, 185, 11);">
+            <a class="navbar-brand" href="#"
+                style="font-family: cursive; font-weight:bolder; font-size: 28px; color: rgb(245, 250, 255);">VirtualMarket</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation"></button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index.html' %}">Home <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login.html' %}">Iniciar Sesion</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'venta.html' %}" id="dropdownId"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ventas</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <ul>
+                                <li>
+                                    <a class="dropdown-menu" href="{% url 'producto.html' %}">Comprar productos</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'carroCompra.html' %}">Carro de compras</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'verProducto.html' %}">Ver tus productos</a>
+                                </li>
+                            </ul>
+>>>>>>> 49fa2c8dcd8439ada79106f4958c579e173ddf85
                         </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </section>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'donancion.html' %}">Aporte</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
     <section>
-        {% for ctg in categoria %}
         <div class="row">
-            <div class="container-fluid">
-                <h1 class="page-header d-flex justify-content-center" style="font-family:cursive;">Categorías</h1>
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <form id="form1" name="form1" action="#">
+                                <fieldset>
+                                    <legend style="font-family: cursive"> Nuestro catálogo de productos</legend>
+                                    <div class="form-group">
+
+                                        <label for="idCategoria" style="font-family: cursive">Categorías:</label>
+                                        <select id="idCategoria" class="form-control">
+                                            <option value="0">Seleccione una categoría..</option>
+                                        </select>
+                                        <br>
+                                        <div class="col-lg-4 col-md-6 col-sm-12 pt-5">
+                                            <div class="card" style="width: 18rem">
+                                                <img src="" class="card-img-top" alt="..." />
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{prd.nombre}}</h5>
+                                                    <p class="card-text">{{prd.descripcion}}</p>
+                                                    <p>{{prd.precio}}</p>
+
+                                                    <button type="submit" class="btn btn-success"
+                                                        style="font-family: cursive">Agregar al carrito</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="col-lg-4 col-md-6 col-sm-12 pt-5">
+                                            <div class="card" style="width: 18rem">
+                                                <img src="" class="card-img-top" alt="..." />
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{prd.nombre}}</h5>
+                                                    <p class="card-text">{{prd.descripcion}}</p>
+                                                    <p>{{prd.precio}}</p>
+
+                                                    <button type="submit" class="btn btn-success"
+                                                        style="font-family: cursive">Agregar al carrito</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="col-1"></div>
         </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="col">
-                    <div class="card" style="width: 18rem">
-                        <img src="#" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5 class="card-title justify-content-center">{ctg.nombre}</h5>
-                            <p class="card-text">
-                                {ctg.descripcion}
-                            </p>
-                            <div class="d-flex justify-content-between">
-                                <div class="">
-                                    <img src="#" alt="" class="img-fluid" />
-                                </div>
-                                <div class="">
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-primary d-block mt-5"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="col">
-                    <div class="card" style="width: 18rem">
-                        <img src="#" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5 class="card-title justify-content-center">{ctg.nombre}</h5>
-                            <p class="card-text">
-                                {ctg.descripcion}
-                            </p>
-                            <div class="d-flex justify-content-between">
-                                <div class="">
-                                    <img src="#" alt="" class="img-fluid" />
-                                </div>
-                                <div class="">
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-primary d-block mt-5"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="col">
-                    <div class="card" style="width: 18rem">
-                        <img src="#" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5 class="card-title justify-content-center">{ctg.nombre}</h5>
-                            <p class="card-text">
-                                {ctg.descripcion}
-                            </p>
-                            <div class="d-flex justify-content-between">
-                                <div class="">
-                                    <img src="#" alt="" class="img-fluid" />
-                                </div>
-                                <div class="">
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                    <img src="#" alt="" class="img-fluid" />
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-primary d-block mt-5"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
     </section>
 </body>
 
