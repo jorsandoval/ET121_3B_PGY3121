@@ -38,7 +38,7 @@ def login(request):
     if not pass_valido:
         return Response("Contraseña incorrecta, intente nuevamente.")
     token, create = Token.objects.get_or_create(user=user)
-    return Response(token.key)
+    return Response({"token": token.key})
 
 
 @api_view(["PUT"])
