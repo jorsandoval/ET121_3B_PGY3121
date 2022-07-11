@@ -12,36 +12,38 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgb(133, 185, 11);">
-            <a class="navbar-brand" href="#" style="font-family: cursive; font-weight:bolder; font-size: 28px; color: rgb(245, 250, 255);">VirtualMarket</a>
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                aria-expanded="false" aria-label="Toggle navigation"></button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'index.html' %}">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'login.html' %}">Iniciar Sesion</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{% url 'venta.html' %}" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Venta</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-menu" href="{% url 'producto.html' %}">Comprar productos</a>
-                            <a class="dropdown-item" href="{% url 'carroCompra.html' %}">Carro de compras</a>
-                            <a class="dropdown-item" href="{% url 'verProducto.html' %}">Ver tus productos</a>
+        <section>
+            <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgb(133, 185, 11);">
+                <a class="navbar-brand" href="#" style="font-family: cursive; font-weight:bolder; font-size: 28px; color: rgb(245, 250, 255);">VirtualMarket</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation"></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="list-style: none;">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="home_login.html">Iniciar Sesion</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="donancion.html">Aporte</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="categoria.html">Categoria</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Venta</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-menu" href="producto.html">Comprar productos</a>
+                                <a class="dropdown-item" href="home_carroCompra.html">Carro de compras</a>
+                                <a class="dropdown-item" href="verProducto.html">Ver tus productos</a>
+                            </div>
                         </div>
-                    </div>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'donancion.html' %}">Aporte</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'lista_categoria.html' %}">Categoria</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
     </header>
     <section>
         {% for ctg in categoria %}
