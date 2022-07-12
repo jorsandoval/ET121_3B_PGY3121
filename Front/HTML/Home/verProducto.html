@@ -91,137 +91,60 @@
 			</section>
 		</header>
 		<main style="min-height: 80vh">
-			<div class="container-fluid mb-5 mb-lg-0">
-				<div class="row">
-					<div class="d-flex justify-content-center col-lg-6">
-						<img
-							src="../img/Producto1Categoria1.png"
-							alt=""
-							class="img-fluid"
-						/>
-					</div>
-					<div
-						class="col-lg-6 d-flex"
-						style="flex-direction: column; justify-content: space-evenly"
-					>
-						<h1 class="page-header">Nombreeeeeee</h1>
-						<ul class="list-inline" style="list-style: none">
-							<li><p>$18000</p></li>
-							<li><p>Stock: 10 Und.</p></li>
-							<li>
-								<p>
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint
-									in consequuntur excepturi asperiores, eos tempore iusto nihil
-									alias cupiditate quia quos veritatis numquam natus eveniet
-									optio voluptatem velit est id expedita, praesentium labore
-									illum dolorem. Aperiam possimus harum, ea nostrum maiores cum
-									unde pariatur itaque sunt provident facere quam accusamus?
-								</p>
-							</li>
-						</ul>
-
-						<button
-							class="btn btn-block"
-							style="background-color: rgb(133, 185, 11); color: #fff"
-							type="submit"
-						>
-							Agregar carrito
-						</button>
-					</div>
-				</div>
+			<div id="detalleProduto" class="container mb-5 mb-lg-0">
 			</div>
 		</main>
-		<footer>
-			<div class="container-fluid" style="background-color: rgb(133, 185, 11)">
-				<div class="row pb-2 pt-5">
-					<div class="col-md-6 mb-2">
-						<div class="widget widget-links widget-light">
-							<ul
-								class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start"
-								style="list-style: none"
-							>
-								<li class="widget-list-item me-4">
-									<a class="widget-list-link" href="{% url 'index.html' %}"
-										>Inicio</a
-									>
-								</li>
-								<li class="widget-list-item me-4">
-									<a class="widget-list-link" href="{% url 'nosotros.html' %}"
-										>Nosotros</a
-									>
-								</li>
-								<li class="widget-list-item me-4">
-									<a class="widget-list-link" href="{% url 'contacto.html' %}"
-										>Contacto</a
-									>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-6 mb-2">
-						<div
-							class="widget widget-links widget-light widget-list d-flex flex-wrap mb-3 justify-content-center justify-content-md-end"
-						>
-							<button
-								type="button"
-								class="btn btn-outline-secondary widget-list-item"
-							>
-								<a
-									class="btn-social bs-light widget-list-linkwidget-light mb-2"
-									href="https://twitter.com/home"
-								>
-									<i class="bi bi-twitter"></i>
-								</a>
-							</button>
-							<button
-								type="button"
-								class="btn btn-outline-secondary widget-list-item"
-							>
-								<a
-									class="btn-social bs-light widget-list-linkwidget-light mb-2"
-									href="https://web.whatsapp.com/"
-								>
-									<i class="bi bi-whatsapp"></i>
-								</a>
-							</button>
-							<button
-								type="button"
-								class="btn btn-outline-secondary widget-list-item"
-							>
-								<a
-									class="btn-social bs-light widget-list-linkwidget-light mb-2"
-									href="https://www.facebook.com/"
-								>
-									<i class="bi bi-facebook"></i>
-								</a>
-							</button>
-							<button
-								type="button"
-								class="btn btn-outline-secondary widget-list-item"
-							>
-								<a
-									class="btn-social bs-light widget-list-linkwidget-light mb-2"
-									href="https://www.instagram.com/"
-								>
-									<i class="bi bi-instagram"></i>
-								</a>
-							</button>
-							<button
-								type="button"
-								class="btn btn-outline-secondary widget-list-item"
-							>
-								<a
-									class="btn-social bs-light widget-list-linkwidget-light mb-2"
-									href="./contacto.html"
-								>
-									<i class="bi bi-envelope"></i>
-								</a>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
+        <footer>
+            <div class="container-fluid aligned-center" style="background-color: rgb(133, 185, 11)">
+                <div class="row pb-2 pt-5">
+                    <div class="col-md-6 mb-2">
+                        <div class="widget widget-links widget-light">
+                            <ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start"
+                                style="list-style: none">
+                                <li class="widget-list-item me-4 m-2">
+                                    <a class="widget-list-link" href="./index.html">Inicio</a>
+                                </li>
+                                <li class="widget-list-item me-4 m-2">
+                                    <a class="widget-list-link" href="./nosotros.html">Nosotros</a>
+                                </li>
+                                <li class="widget-list-item me-4 m-2">
+                                    <a class="widget-list-link" href="./contacto.html">Contacto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div
+                            class="widget widget-links widget-light widget-list d-flex flex-wrap mb-3 justify-content-center justify-content-md-end">
+                            <button type="button" class="btn btn-outline-secondary widget-list-item m-1">
+                                <a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+                                    href="https://twitter.com/home">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary widget-list-item m-1">
+                                <a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+                                    href="https://web.whatsapp.com/">
+                                    <i class="bi bi-whatsapp"></i>
+                                </a>
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary widget-list-item m-1">
+                                <a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+                                    href="https://www.facebook.com/">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary widget-list-item m-1">
+                                <a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+                                    href="https://www.instagram.com/">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 		<script src="../../script/verProducto.js"></script>
 	</body>
 </html>
