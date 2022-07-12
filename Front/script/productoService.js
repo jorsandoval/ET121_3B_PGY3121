@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 			const item = response[i + j];
 			if (item != null) {
 				divProducto.className = "col-4";
-				divProducto.innerHTML = `<div class="card" style="width: 18rem; min-height: 
+				divProducto.innerHTML = `<div class="card mx-auto" style="width: 18rem; min-height: 
                 650px; justify-content: space-between"><img src="../${
 									item.imagen
 								}" class="card-img-top" alt="..." /><div class="card-body" style="flex:0"><h5 class="card-title">${
