@@ -142,3 +142,13 @@ def usuarioById(request, idUsuario):
     elif request.method == "DELETE":
         usuario.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(["POST"])
+def validateUser(request):
+    data = JSONParser().parse(request)
+    try:
+        usuario = Usuario.objects.get(correo=data["email"])
+    except Usuario.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    return Response(status=status.HTTP_200_OK)
