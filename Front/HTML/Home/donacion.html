@@ -48,35 +48,24 @@
         </section>
     </header>
     <section>
-        {% for dnc in donacion %}
         <div class="container-fluid">
             <div class="row-cols-lg-12">
                 <h1 class="page-header d-flex justify-content-center"
                 style="font-family: cursive; font-weight: bolder;">Donanos!</h1>
             </div>
-            <div class="row">
-                <div class="col-xs-6">
-                    <div class="col">
-                        <ul class="list-inline" style="list-style: none;">
-                            <li>
-                                <p>{dnc.descripcion}</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <form action="#" method="get">
+            <div class="row w-50 mx-auto text-center mt-5">
+                <div class="col">
+                        <form id="form" >
                             <div class="input-group mb-3">
-                                <span class="input-group-text">$</span>
-                                <input type="number" class="form-control">
+                                <input type="email" id="email" class="form-control" placeholder="Ingresa tu correo">
                               </div>
                               <button class="btn btn-primary" type="submit">Donar</button>
                               <button class="btn btn-danger" type="reset">Limpiar</button>
                         </form>
-                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
+
     </section>
     <footer style="position: fixed; bottom: 0; width: 100%">
         <div class="container-fluid aligned-center" style="background-color: rgb(133, 185, 11)">
@@ -123,4 +112,5 @@
             </div>
         </div>
     </footer>
+    <script src="../../script/dona.js"></script>
 </body>
