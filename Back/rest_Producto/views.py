@@ -67,9 +67,7 @@ def productById(request: HttpRequest, id: int):
 
 
 """
-
     Categorias
-
 """
 
 
