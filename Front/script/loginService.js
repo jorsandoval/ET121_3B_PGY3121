@@ -14,4 +14,5 @@ document.getElementById("form").addEventListener("submit", async (e) => {
 	}).then((data) => data.json());
 	console.log(resultFetch.token);
 	localStorage.setItem("token", resultFetch.token);
+	localStorage.setItem("usuario", resultFetch.id);
 });

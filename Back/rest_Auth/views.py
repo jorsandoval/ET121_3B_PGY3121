@@ -1,6 +1,3 @@
-from functools import partial
-from os import stat
-from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
@@ -9,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password, make_password
 from rest_framework.authtoken.models import Token
+
 from .models import Usuario
 from .serializers import UserSerializer, UsuarioSerializer
 from rest_framework.authentication import TokenAuthentication
@@ -69,12 +67,14 @@ def login(request):
         return Response(
             "Usuario no se encuentra en los registros", status=status.HTTP_404_NOT_FOUND
         )
-
     pass_valido = check_password(data["password"], user.password)
+    serialize = UserSerializer(user)
+    usuario = Usuario.objects.get(correo=serialize.data["email"])
+    serializer = UsuarioSerializer(usuario)
     if not pass_valido:
         return Response("Contraseña incorrecta, intente nuevamente.")
     token, create = Token.objects.get_or_create(user=user)
-    return Response({"token": token.key})
+    return Response({"token": token.key, "id": serializer.data["idUsuario"]})
 
 
 """
@@ -154,13 +154,18 @@ def validateUser(request):
         return Response(status=status.HTTP_404_NOT_FOUND)
     return Response(status=status.HTTP_200_OK)
 
-@api_view(["PUT",])
-def updateSuscripcionById(request,idUsuario):
+
+@api_view(
+    [
+        "PUT",
+    ]
+)
+def updateSuscripcion(request):
+    data = JSONParser().parse(request)
     try:
-        usuario = Usuario.objects.get(idUsuario=idUsuario)
+        usuario = Usuario.objects.get(correo=data["email"])
     except Usuario.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-    data = JSONParser().parse(request)
     serializer = UsuarioSerializer(usuario, data=data, partial=True)
     if serializer.is_valid():
         serializer.save()
