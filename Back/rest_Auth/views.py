@@ -160,12 +160,12 @@ def validateUser(request):
         "PUT",
     ]
 )
-def updateSuscripcionById(request, idUsuario):
+def updateSuscripcion(request):
+    data = JSONParser().parse(request)
     try:
-        usuario = Usuario.objects.get(idUsuario=idUsuario)
+        usuario = Usuario.objects.get(correo=data["email"])
     except Usuario.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-    data = JSONParser().parse(request)
     serializer = UsuarioSerializer(usuario, data=data, partial=True)
     if serializer.is_valid():
         serializer.save()
