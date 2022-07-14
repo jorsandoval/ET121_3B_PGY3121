@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 					item.descripcion.length > 50
 						? item.descripcion.substr(0, 50).trim() + "..."
 						: item.descripcion
-				}</p><div class="row text-center"><div class="col-6"><p>$${
+				}</p><div class="row text-center"><div class="col-6"><p class="font-weight-bold">$${
 					item.valor
 				}</p></div><div class="col-6"><p>${
 					item.stock
