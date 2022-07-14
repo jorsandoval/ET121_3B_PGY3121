@@ -65,6 +65,14 @@ def productById(request: HttpRequest, id: int):
         producto.delete()
         return Response(status=status.HTTP_200_OK)
 
+@api_view(["GET"])
+def productByIdCategoria(request: HttpRequest, id: int):
+    try:
+        producto: Producto = Producto.objects.get(categoria=id)
+    except Producto.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    serializer = ProductoSerializer(producto)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 """
     Categorias
