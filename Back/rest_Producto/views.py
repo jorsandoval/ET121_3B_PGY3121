@@ -67,12 +67,11 @@ def productById(request: HttpRequest, id: int):
 
 @api_view(["GET"])
 def productByIdCategoria(request: HttpRequest, id: int):
-    try:
-        producto: Producto = Producto.objects.get(categoria=id)
-    except Producto.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    serializer = ProductoSerializer(producto)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+    producto: Producto = Producto.objects.all()
+    serializerProducto = ProductoSerializer(Producto, many=True)
+    finalList = []
+    for producto in serializerProducto.data:
+        
 
 """
     Categorias
