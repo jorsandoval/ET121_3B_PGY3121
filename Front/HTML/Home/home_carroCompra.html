@@ -69,14 +69,15 @@
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th scope="col" style="font-family: cursive">N°</th>
+									<th scope="col" style="font-family: cursive">SKU</th>
 									<th scope="col" style="font-family: cursive">Nombre</th>
 									<th scope="col" style="font-family: cursive">Precio</th>
 									<th scope="col" style="font-family: cursive">Cantidad</th>
 									<th scope="col" style="font-family: cursive">Opciones</th>
 								</tr>
 							</thead>
-							<tbody class="table-group-divider" id="body-productos"></tbody>
+							<tbody class="table-group-divider" id="body-productos">
+							</tbody>
 						</table>
 						<br />
 						<div class="col-4">
@@ -97,7 +98,14 @@
 											</th>
 										</tr>
 									</thead>
-									<tbody class="table-group-divider" id="body-total"></tbody>
+									<tbody class="table-group-divider" id="body-total">
+										<tr>
+											<td scope="col">0</td>
+											<td scope="col">0</td>
+											<td scope="col">0</td>
+											<td scope="col"><button type="button" disabled id="pago" class="btn btn-success"style="font-family: cursive" >Pagar</button></td>
+										</tr>
+									</tbody>
 								</table>
 							</div>
 						</div>

@@ -12,7 +12,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
 			"Content-Type": "application/json",
 		},
 	}).then((data) => data.json());
-	console.log(resultFetch.token);
 	localStorage.setItem("token", resultFetch.token);
 	localStorage.setItem("usuario", resultFetch.id);
+	window.location = "http://localhost:5500/Front/HTML/Home";
 });

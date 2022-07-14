@@ -23,7 +23,6 @@ from .serializers import (
 
 """
 
-
 @api_view(["GET", "POST"])
 def productGetAll(request: HttpRequest):
     if request.method == "GET":

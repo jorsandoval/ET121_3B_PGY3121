@@ -69,5 +69,9 @@ form.addEventListener("submit", (e) => {
 			method: "POST",
 			body: JSON.stringify(object),
 		});
+		window.location = "http://localhost:5500/Front/HTML/Home";
+	}else{
+		alert("La contraseña no coincide, intente nuevamente.")
 	}
+	
 });

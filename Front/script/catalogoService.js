@@ -39,14 +39,14 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 														? item.descripcion.substr(0, 50).trim() + "..."
 														: item.descripcion
 												}</p>
-                        <p>$${item.valor}</p>
-                        <button
-                            type="submit"
+                        <p class="font-weight-bold">$${item.valor}</p>
+                        <a
                             class="btn btn-success"
                             style="font-family: cursive"
+							href="./verProducto.html?id=${item.idProducto}"
                         >
-                            Agregar al carrito
-                        </button>
+                            Ver Producto
+                        </a>
                     </div>
                 </div>`;
 						row.appendChild(divProducto);
