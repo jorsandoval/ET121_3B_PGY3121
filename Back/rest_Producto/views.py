@@ -66,6 +66,16 @@ def productById(request: HttpRequest, id: int):
         return Response(status=status.HTTP_200_OK)
 
 
+@api_view(["GET"])
+def productByIdCategoria(request: HttpRequest, id: int):
+    try:
+        producto: Producto = Producto.objects.filter(categoria=id)
+    except Producto.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    serializer = ProductoSerializer(producto, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 """
     Categorias
 """

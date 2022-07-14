@@ -6,11 +6,13 @@ from .views import (
     categoriaById,
     promocionGetAll,
     promocionById,
+    productByIdCategoria,
 )
 
 urlpatterns = [
     path("productos/", productGetAll, name="productGetAll"),
-    path("productos/<id>", productById, name="productById"),
+    path("productos/byId/<id>", productById, name="productById"),
+    path("productos/byCategoria/<id>", productByIdCategoria, name="productByIdCategoria"),
     path("categoria/", categoriaGetAll, name="categoriaGetAll"),
     path("categoria/<id>", categoriaById, name="categoriaById"),
     path("promociones/", promocionGetAll, name="promocionesGetAll"),

@@ -1,240 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Home Login</title>
-		<link rel="icon" href="../img/favicon_2.png" type="image/x-icon" />
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-		/>
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
-		/>
-	</head>
 
-	<body style="min-height: 140vh">
-		<header>
-			<section>
-				<nav
-					class="navbar navbar-expand-sm navbar-dark"
-					style="background-color: rgb(133, 185, 11)"
-				>
-					<a
-						class="navbar-brand"
-						href="#"
-						style="
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Home Login</title>
+	<link rel="icon" href="../img/favicon_2.png" type="image/x-icon" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+</head>
+
+<body style="min-height: 140vh">
+	<header>
+		<section>
+			<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgb(133, 185, 11)">
+				<a class="navbar-brand" href="index.html" style="
 							font-family: cursive;
 							font-weight: bolder;
 							font-size: 28px;
 							color: rgb(245, 250, 255);
-						"
-						>VirtualMarket</a
-					>
-					<button
-						class="navbar-toggler d-lg-none"
-						type="button"
-						data-toggle="collapse"
-						data-target="#collapsibleNavId"
-						aria-controls="collapsibleNavId"
-						aria-expanded="false"
-						aria-label="Toggle navigation"
-					></button>
-					<div class="collapse navbar-collapse" id="collapsibleNavId">
-						<ul
-							class="navbar-nav mr-auto mt-2 mt-lg-0"
-							style="list-style: none"
-						>
-							<li class="nav-item active">
-								<a class="nav-link" href="index.html"
-									>Home <span class="sr-only">(current)</span></a
-								>
-							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="home_login.html">Iniciar Sesion</a>
-							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="donacion.html">Aporte</a>
-							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="categoria.html">Categoria</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a
-									class="nav-link dropdown-toggle"
-									href="#"
-									id="dropdownId"
-									data-toggle="dropdown"
-									aria-haspopup="true"
-									aria-expanded="false"
-									>Venta</a
-								>
-								<div class="dropdown-menu" aria-labelledby="dropdownId">
-									<a class="dropdown-item" href="producto.html"
-										>Comprar productos</a
-									>
-									<a class="dropdown-item" href="home_carroCompra.html"
-										>Carro de compras</a
-									>
-									<a class="dropdown-item" href="verProducto.html"
-										>Ver tus productos</a
-									>
+						">VirtualMarket</a>
+				<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+					data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+					aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse" id="collapsibleNavId">
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="list-style: none">
+						<li class="nav-item active">
+							<a class="nav-link" href="index.html">Inicio<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="home_login.html">Iniciar Sesion</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="home_cre_login.html">Registrarme</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="donacion.html">Aporte</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="categoria.html">Categoria</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="producto.html">Productos</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="home_carroCompra.html">Carro Compras</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</section>
+	</header>
+
+	<section>
+		<div class="container-fluid m-0 pt-5">
+			<main role="main" class="container my-auto">
+				<div class="row">
+					<div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12">
+						<h2 class="text-center" style="font-family: cursive">
+							Bienvenidos
+						</h2>
+						<form id="form">
+							<div class="form-group">
+								<label for="email" style="font-family: cursive">Usuario</label>
+								<input id="email" name="correo" class="form-control" type="email"
+									placeholder="Ingresa tu e-mail" />
+							</div>
+							<div class="form-group">
+								<label for="password" style="font-family: cursive">Contraseña</label>
+								<input id="password" name="palabraSecreta" class="form-control" type="password"
+									placeholder="Ingresa tu contraseña" />
+							</div>
+							<div class="row">
+								<div class="col-6">
+									<div class="mb-3 form-check text-end">
+										<a href="#" class="font-weight-bold text-dark"
+											style="font-family: cursive">Restablecer Contraseña</a>
+									</div>
 								</div>
+							</div>
+							<div class="d-grid gap-2">
+								<button type="submit" class="btn btn-success" style="font-family: cursive">
+									Iniciar Sesión
+								</button>
+								<button type="reset" class="btn btn-dark" style="font-family: cursive">
+									Limpiar
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</main>
+		</div>
+	</section>
+	<footer style="position: fixed; bottom: 0; width: 100%">
+		<div class="container-fluid aligned-center" style="background-color: rgb(133, 185, 11)">
+			<div class="row pb-2 pt-5">
+				<div class="col-md-6 mb-2">
+					<div class="widget widget-links widget-light">
+						<ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start"
+							style="list-style: none">
+							<li class="widget-list-item me-4 m-2">
+								<a class="widget-list-link" href="./index.html">Inicio</a>
 							</li>
 						</ul>
 					</div>
-				</nav>
-			</section>
-		</header>
-
-		<section>
-			<div class="container-fluid m-0 pt-5">
-				<main role="main" class="container my-auto">
-					<div class="row">
-						<div
-							id="login"
-							class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12"
-						>
-							<h2 class="text-center" style="font-family: cursive">
-								Bienvenidos
-							</h2>
-							<form id="form">
-								<div class="form-group">
-									<label for="email" style="font-family: cursive"
-										>Usuario</label
-									>
-									<input
-										id="email"
-										name="correo"
-										class="form-control"
-										type="email"
-										placeholder="Ingresa tu e-mail"
-									/>
-								</div>
-								<div class="form-group">
-									<label for="password" style="font-family: cursive"
-										>Contraseña</label
-									>
-									<input
-										id="password"
-										name="palabraSecreta"
-										class="form-control"
-										type="password"
-										placeholder="Ingresa tu contraseña"
-									/>
-								</div>
-								<div class="row">
-									<div class="col-6">
-										<div class="mb-3 form-check text-end">
-											<a
-												href="#"
-												class="font-weight-bold text-dark"
-												style="font-family: cursive"
-												>Restablecer Contraseña</a
-											>
-										</div>
-									</div>
-								</div>
-								<div class="d-grid gap-2">
-									<button
-										type="submit"
-										class="btn btn-success"
-										style="font-family: cursive"
-									>
-										Iniciar Sesión
-									</button>
-									<button
-										type="reset"
-										class="btn btn-dark"
-										style="font-family: cursive"
-									>
-										Limpiar
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</main>
-			</div>
-		</section>
-		<footer style="position: fixed; bottom: 0; width: 100%">
-			<div
-				class="container-fluid aligned-center"
-				style="background-color: rgb(133, 185, 11)"
-			>
-				<div class="row pb-2 pt-5">
-					<div class="col-md-6 mb-2">
-						<div class="widget widget-links widget-light">
-							<ul
-								class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start"
-								style="list-style: none"
-							>
-								<li class="widget-list-item me-4 m-2">
-									<a class="widget-list-link" href="./index.html">Inicio</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-6 mb-2">
-						<div
-							class="widget widget-links widget-light widget-list d-flex flex-wrap mb-3 justify-content-center justify-content-md-end"
-						>
-							<button
-								type="button"
-								class="btn btn-outline-secondary widget-list-item m-1"
-							>
-								<a
-									class="btn-social bs-light widget-list-linkwidget-light mb-2"
-									href="https://twitter.com/home"
-								>
-									<i class="bi bi-twitter"></i>
-								</a>
-							</button>
-							<button
-								type="button"
-								class="btn btn-outline-secondary widget-list-item m-1"
-							>
-								<a
-									class="btn-social bs-light widget-list-linkwidget-light mb-2"
-									href="https://web.whatsapp.com/"
-								>
-									<i class="bi bi-whatsapp"></i>
-								</a>
-							</button>
-							<button
-								type="button"
-								class="btn btn-outline-secondary widget-list-item m-1"
-							>
-								<a
-									class="btn-social bs-light widget-list-linkwidget-light mb-2"
-									href="https://www.facebook.com/"
-								>
-									<i class="bi bi-facebook"></i>
-								</a>
-							</button>
-							<button
-								type="button"
-								class="btn btn-outline-secondary widget-list-item m-1"
-							>
-								<a
-									class="btn-social bs-light widget-list-linkwidget-light mb-2"
-									href="https://www.instagram.com/"
-								>
-									<i class="bi bi-instagram"></i>
-								</a>
-							</button>
-						</div>
+				</div>
+				<div class="col-md-6 mb-2">
+					<div
+						class="widget widget-links widget-light widget-list d-flex flex-wrap mb-3 justify-content-center justify-content-md-end">
+						<button type="button" class="btn btn-outline-secondary widget-list-item m-1">
+							<a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+								href="https://twitter.com/home">
+								<i class="bi bi-twitter"></i>
+							</a>
+						</button>
+						<button type="button" class="btn btn-outline-secondary widget-list-item m-1">
+							<a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+								href="https://web.whatsapp.com/">
+								<i class="bi bi-whatsapp"></i>
+							</a>
+						</button>
+						<button type="button" class="btn btn-outline-secondary widget-list-item m-1">
+							<a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+								href="https://www.facebook.com/">
+								<i class="bi bi-facebook"></i>
+							</a>
+						</button>
+						<button type="button" class="btn btn-outline-secondary widget-list-item m-1">
+							<a class="btn-social bs-light widget-list-linkwidget-light mb-2"
+								href="https://www.instagram.com/">
+								<i class="bi bi-instagram"></i>
+							</a>
+						</button>
 					</div>
 				</div>
 			</div>
-		</footer>
-		<script src="../../script/loginService.js"></script>
-	</body>
+		</div>
+	</footer>
+	<script src="../../script/loginService.js"></script>
+</body>
+
 </html>
 }
