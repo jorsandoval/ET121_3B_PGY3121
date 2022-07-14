@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 	const idProducto = urlParams.get("id");
 	const response = await (
 		await fetch(
-			`http://localhost:8000/api/v1/Productos/productos/${idProducto}`
+			`http://localhost:8000/api/v1/Productos/productos/byId/${idProducto}`
 		)
 	).json();
 	const container = document.getElementById("detalleProduto");
