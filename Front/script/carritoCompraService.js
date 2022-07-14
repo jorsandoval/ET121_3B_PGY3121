@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 			keys.map(async (element, index) => {
 				const result = await (
 					await fetch(
-						`http://localhost:8000/api/v1/Productos/productos/${element}`
+						`http://localhost:8000/api/v1/Productos/productos/byId/${element}`
 					)
 				).json();
 				result["total"] = result["valor"] * unic[result.idProducto];
