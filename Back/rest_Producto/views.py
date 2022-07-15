@@ -3,10 +3,14 @@ from functools import partial
 from pydoc import describe
 from typing import final
 from rest_framework import status
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.request import HttpRequest
 from rest_framework.parsers import JSONParser
+
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Producto, Promocion, Categoria, PromocionProducto
 from .serializers import (
@@ -22,8 +26,9 @@ from .serializers import (
     Productos
 
 """
-
+@csrf_exempt
 @api_view(["GET", "POST"])
+#@permission_classes((IsAuthenticated,))
 def productGetAll(request: HttpRequest):
     if request.method == "GET":
         producto = Producto.objects.all()
@@ -43,8 +48,9 @@ def productGetAll(request: HttpRequest):
                     producto.save()
             return Response(producto.data, status=status.HTTP_201_CREATED)
 
-
+@csrf_exempt
 @api_view(["GET", "PUT", "DELETE"])
+#@permission_classes((IsAuthenticated,))
 def productById(request: HttpRequest, id: int):
     try:
         producto: Producto = Producto.objects.get(idProducto=id)
@@ -64,8 +70,9 @@ def productById(request: HttpRequest, id: int):
         producto.delete()
         return Response(status=status.HTTP_200_OK)
 
-
+@csrf_exempt
 @api_view(["GET"])
+#@permission_classes((IsAuthenticated,))
 def productByIdCategoria(request: HttpRequest, id: int):
     try:
         producto: Producto = Producto.objects.filter(categoria=id)
@@ -79,8 +86,9 @@ def productByIdCategoria(request: HttpRequest, id: int):
     Categorias
 """
 
-
+@csrf_exempt
 @api_view(["GET", "POST"])
+#@permission_classes((IsAuthenticated,))
 def categoriaGetAll(request: HttpRequest):
     if request.method == "GET":
         categorias: Categoria = Categoria.objects.all()
@@ -100,8 +108,9 @@ def categoriaGetAll(request: HttpRequest):
                     categorias.save()
             return Response(categorias.data, status=status.HTTP_201_CREATED)
 
-
+@csrf_exempt
 @api_view(["GET", "PUT", "DELETE"])
+#@permission_classes((IsAuthenticated,))
 def categoriaById(request: HttpRequest, id: int):
     try:
         categoria: Categoria = Categoria.objects.get(idCategoria=id)
@@ -128,8 +137,9 @@ def categoriaById(request: HttpRequest, id: int):
 
 """
 
-
+@csrf_exempt
 @api_view(["GET", "POST"])
+#@permission_classes((IsAuthenticated,))
 def promocionGetAll(request: HttpRequest):
     if request.method == "GET":
         promocion: Promocion = Promocion.objects.all()
@@ -171,8 +181,9 @@ def promocionGetAll(request: HttpRequest):
                 promocionProducto.save()
         return Response(promocion.data, status=status.HTTP_201_CREATED)
 
-
+@csrf_exempt
 @api_view(["GET", "PUT", "DELETE"])
+#@permission_classes((IsAuthenticated,))
 def promocionById(request: HttpRequest, id: int):
     try:
         promocion: Promocion = Promocion.objects.get(idPromocion=id)

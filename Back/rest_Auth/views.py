@@ -17,7 +17,9 @@ from rest_framework.permissions import IsAuthenticated
 """
 
 # Create your views here.
+@csrf_exempt
 @api_view(["POST"])
+#@permission_classes((IsAuthenticated,))
 def singUp(request):
     data = JSONParser().parse(request)
     usuario = UsuarioSerializer(
@@ -57,8 +59,9 @@ def singUp(request):
     Inicio de sesión
 """
 
-
+@csrf_exempt
 @api_view(["POST"])
+#@permission_classes((IsAuthenticated,))
 def login(request):
     data = JSONParser().parse(request)
     try:
@@ -81,8 +84,9 @@ def login(request):
     Cambio de contraseña
 """
 
-
+@csrf_exempt
 @api_view(["PUT"])
+#@permission_classes((IsAuthenticated,))
 def changePassword(request):
     try:
         data = JSONParser().parse(request)
@@ -144,8 +148,9 @@ def usuarioById(request, idUsuario):
         usuario.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
+@csrf_exempt
 @api_view(["POST"])
+#@permission_classes((IsAuthenticated,))
 def validateUser(request):
     data = JSONParser().parse(request)
     try:
@@ -154,12 +159,13 @@ def validateUser(request):
         return Response(status=status.HTTP_404_NOT_FOUND)
     return Response(status=status.HTTP_200_OK)
 
-
+@csrf_exempt
 @api_view(
     [
         "PUT",
     ]
 )
+#@permission_classes((IsAuthenticated,))
 def updateSuscripcion(request):
     data = JSONParser().parse(request)
     try:
